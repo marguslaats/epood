@@ -72,3 +72,17 @@ if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin()
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
  * https://github.com/woocommerce/theme-customisations
  */
+/**
+ * @snippet       Stock Quantity @ WooCommerce Shop / Cat / Archive Pages
+ * @how-to        Get CustomizeWoo.com FREE
+ * @author        Rodolfo Melogli
+ * @compatible    WooCommerce 3.7
+ * @donate $9     https://businessbloomer.com/bloomer-armada/
+ */
+ 
+add_action( 'woocommerce_after_shop_loop_item', 'bbloomer_show_stock_shop', 10 );
+  
+function bbloomer_show_stock_shop() {
+   global $product;
+   echo wc_get_stock_html( $product );
+}
